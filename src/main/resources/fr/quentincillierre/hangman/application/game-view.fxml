@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -46,10 +45,5 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
     </GridPane>
-   <ToggleButton layoutX="487.0" layoutY="588.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="149.0" text="Reset">
-      <font>
-         <Font name="System Bold" size="22.0" />
-      </font>
-   </ToggleButton>
 
 </AnchorPane>
