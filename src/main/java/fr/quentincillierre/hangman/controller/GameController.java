@@ -2,6 +2,8 @@ package fr.quentincillierre.hangman.controller;
 
 import fr.quentincillierre.hangman.model.HangmanModel;
 import fr.quentincillierre.hangman.model.WordRepository;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -9,8 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 public class GameController {
+
+    @FXML
+    private Label storyLabel;
 
     @FXML
     private Label wordLabel;
@@ -25,21 +31,58 @@ public class GameController {
     private GridPane keyboardGrid;
 
     private HangmanModel model;
+    private Timeline storyTimeline;
+    private String storyText;
 
     // Automatically call by JavaFX when FXML file is loaded
     @FXML
     public void initialize() {
-        WordRepository wordRepository = new WordRepository();
+        storyText = "You have been captured by an unknown organization." +
+                "\n\nTo earn your freedom, you must crack three security codes." +
+                "\n\nEach failed guess brings you one step closer to execution." +
+                "\n\nCrack every code before time runs out..." +
+                "\n\n...or face execution.";
 
+        storyLabel.setText("");
+        storyLabel.setVisible(true);
+        wordLabel.setVisible(false);
+        resultLabel.setVisible(false);
+        hangmanImageView.setVisible(false);
+        keyboardGrid.setVisible(false);
+        keyboardGrid.setDisable(true);
+
+        generateKeyboard();
+        animateStoryIntro();
+    }
+
+    private void animateStoryIntro() {
+        storyTimeline = new Timeline();
+        int totalChars = storyText.length();
+        double interval = 10000.0 / Math.max(totalChars, 1);
+
+        for (int i = 0; i < totalChars; i++) {
+            int index = i + 1;
+            storyTimeline.getKeyFrames().add(new KeyFrame(Duration.millis(interval * index), event -> {
+                storyLabel.setText(storyText.substring(0, index));
+            }));
+        }
+
+        storyTimeline.setOnFinished(event -> startGame());
+        storyTimeline.play();
+    }
+
+    private void startGame() {
+        storyLabel.setVisible(false);
+        wordLabel.setVisible(true);
+        resultLabel.setVisible(true);
+        hangmanImageView.setVisible(true);
+        keyboardGrid.setVisible(true);
+        keyboardGrid.setDisable(false);
+
+        WordRepository wordRepository = new WordRepository();
         this.model = new HangmanModel(wordRepository.getRandomWord());
 
-        //UI update with "_____"
         refreshUI();
-
-        //Loading letters buttons
-        generateKeyboard();
-
-        resultLabel.setOpacity(0);
     }
 
     private void refreshUI() {
