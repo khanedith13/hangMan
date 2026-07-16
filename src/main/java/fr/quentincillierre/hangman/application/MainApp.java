@@ -17,7 +17,7 @@ public class MainApp extends Application {
 
         GameController controller = loader.getController();
 
-        Scene scene = new Scene(root, 800, 800);
+        Scene scene = new Scene(root, 650, 650);
 
         scene.setOnKeyTyped(event -> {
             controller.handleKeyboardInput(event.getCharacter());

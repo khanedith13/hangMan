@@ -62,21 +62,28 @@ public class GameController {
     }
 
     private void generateKeyboard() {
-        for (char c = 'A'; c <= 'Z'; c++){
-            Button letterButton = new Button(String.valueOf(c));
-            letterButton.setPrefSize(80, 80);
+        keyboardGrid.getChildren().clear();
+        String[] rows = {"QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"};
 
-            letterButton.setOnAction(event -> {
-                handleKeyboardInput(letterButton.getText());
-            });
+        for (int row = 0; row < rows.length; row++) {
+            String rowLetters = rows[row];
+            int offset = row == 0 ? 0 : row == 1 ? 1 : 2;
 
-            int index = (int) c - 65;
-            int col = index % 13;
-            int row = index / 13;
-
-            keyboardGrid.add(letterButton, col, row);
+            for (int col = 0; col < rowLetters.length(); col++) {
+                char c = rowLetters.charAt(col);
+                Button letterButton = new Button(String.valueOf(c));
+                letterButton.setPrefWidth(40);
+                letterButton.setPrefHeight(40);
+                letterButton.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+                letterButton.setOnAction(event -> {
+                    if (!letterButton.isDisable()) {
+                        handleKeyboardInput(letterButton.getText());
+                        letterButton.setDisable(true);
+                    }
+                });
+                keyboardGrid.add(letterButton, offset + col, row);
+            }
         }
-
     }
 
     public void handleKeyboardInput(String character){
