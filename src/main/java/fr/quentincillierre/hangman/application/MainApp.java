@@ -23,7 +23,7 @@ public class MainApp extends Application {
             controller.handleKeyboardInput(event.getCharacter());
         });
 
-        primaryStage.setTitle("HangMan");
+        primaryStage.setTitle("Codebreaker: Freedom | Execution");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
 
