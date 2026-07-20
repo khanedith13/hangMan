@@ -55,6 +55,11 @@ public class IntroController {
 
     @FXML
     private void onExit() {
-        Platform.exit();
+        try {
+            MainApp.showExecutedScene();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Platform.exit();
+        }
     }
 }
