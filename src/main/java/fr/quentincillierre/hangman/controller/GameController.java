@@ -31,6 +31,9 @@ public class GameController {
     private ImageView hangmanImageView;
 
     @FXML
+    private Button restartButton;
+
+    @FXML
     private GridPane keyboardGrid;
 
     private HangmanModel model;
@@ -56,6 +59,7 @@ public class GameController {
         hangmanImageView.setVisible(false);
         keyboardGrid.setVisible(false);
         keyboardGrid.setDisable(true);
+        restartButton.setVisible(false);
 
         generateKeyboard();
         animateStoryIntro();
@@ -80,10 +84,14 @@ public class GameController {
     private void startGame() {
         storyLabel.setVisible(false);
         wordLabel.setVisible(true);
-        resultLabel.setVisible(true);
+        resultLabel.setVisible(false);
+        resultLabel.setText("");
+        resultLabel.setOpacity(0);
         hangmanImageView.setVisible(true);
         keyboardGrid.setVisible(true);
         keyboardGrid.setDisable(false);
+        restartButton.setVisible(false);
+        generateKeyboard();
 
         WordRepository wordRepository = new WordRepository();
         String resource = "/words.txt";
@@ -142,6 +150,7 @@ public class GameController {
 
         if (model.isLose() || model.isWin()){
             keyboardGrid.setDisable(true);
+            restartButton.setVisible(true);
             wordLabel.setText(model.getWordToGuess());
             resultLabel.setOpacity(1);
             resultLabel.setAlignment(Pos.CENTER);
@@ -194,5 +203,10 @@ public class GameController {
                 refreshUI();
             }
         }
+    }
+
+    @FXML
+    private void onRestart() {
+        startGame();
     }
 }
