@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.128" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.121" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-25.0.3.9-hotspot\bin"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Admin\AppData\Local\Temp\surefire3316471490207931376 2026-07-21T14-02-32_920-jvmRun1 surefire-20260721140233495_1tmp surefire_0-20260721140233495_2tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\Admin\AppData\Local\Temp\surefire1709823043710040011 2026-07-21T14-07-41_261-jvmRun1 surefire-20260721140742018_1tmp surefire_0-20260721140742018_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\GitHub_Repositories\hangMan\target\test-classes;C:\Users\Admin\.m2\repository\org\openjfx\javafx-controls\21.0.6\javafx-controls-21.0.6.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-graphics\21.0.6\javafx-graphics-21.0.6.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-base\21.0.6\javafx-base-21.0.6.jar;C:\Users\Admin\.m2\repository\org\openjfx\javafx-fxml\21.0.6\javafx-fxml-21.0.6.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.12.1\junit-jupiter-api-5.12.1.jar;C:\Users\Admin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-commons\1.12.1\junit-platform-commons-1.12.1.jar;C:\Users\Admin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.12.1\junit-jupiter-engine-5.12.1.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-engine\1.12.1\junit-platform-engine-1.12.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -61,15 +61,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testIsWin" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.044"/>
-  <testcase name="testTryLetterWithIncorrectLetter" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.006"/>
-  <testcase name="testTryLetterWithDuplicate" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.003"/>
-  <testcase name="testTryLetterWithCorrectLetter" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.001"/>
-  <testcase name="testGetGuessedLetter" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
-  <testcase name="testTryLetterCaseInsensitive" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.003"/>
+  <testcase name="testIsWin" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.048"/>
+  <testcase name="testTryLetterWithIncorrectLetter" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.003"/>
+  <testcase name="testTryLetterWithDuplicate" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.004"/>
+  <testcase name="testTryLetterWithCorrectLetter" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
+  <testcase name="testGetGuessedLetter" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.001"/>
+  <testcase name="testTryLetterCaseInsensitive" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
   <testcase name="testIsLose" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
   <testcase name="testIsWinWithPartialGuess" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
   <testcase name="testGetHiddenWord" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
   <testcase name="testMaxWrongGuesses" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.001"/>
-  <testcase name="testConstructor" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.003"/>
+  <testcase name="testConstructor" classname="fr.quentincillierre.hangman.model.HangmanModelTest" time="0.002"/>
 </testsuite>
