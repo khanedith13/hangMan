@@ -34,6 +34,12 @@ public class GameController {
     private Button restartButton;
 
     @FXML
+    private Button nextLevelButton;
+
+    @FXML
+    private Label levelLabel;
+
+    @FXML
     private GridPane keyboardGrid;
 
     private HangmanModel model;
@@ -60,6 +66,7 @@ public class GameController {
         keyboardGrid.setVisible(false);
         keyboardGrid.setDisable(true);
         restartButton.setVisible(false);
+        nextLevelButton.setVisible(false);
 
         generateKeyboard();
         animateStoryIntro();
@@ -91,7 +98,9 @@ public class GameController {
         keyboardGrid.setVisible(true);
         keyboardGrid.setDisable(false);
         restartButton.setVisible(false);
+        nextLevelButton.setVisible(false);
         generateKeyboard();
+        updateLevelLabel();
 
         WordRepository wordRepository = new WordRepository();
         String resource = "/words.txt";
@@ -151,11 +160,12 @@ public class GameController {
         if (model.isLose() || model.isWin()){
             keyboardGrid.setDisable(true);
             restartButton.setVisible(true);
+            nextLevelButton.setVisible(model.isWin() && hasNextLevel());
             wordLabel.setText(model.getWordToGuess());
             resultLabel.setOpacity(1);
             resultLabel.setAlignment(Pos.CENTER);
             if (model.isWin()){
-                resultLabel.setText("Victory !");
+                resultLabel.setText(hasNextLevel() ? "Level cleared!" : "ACCESS GRANTED");
             }
             else {
                 resultLabel.setText("Game Over !");
@@ -208,5 +218,25 @@ public class GameController {
     @FXML
     private void onRestart() {
         startGame();
+    }
+
+    @FXML
+    private void onNextLevel() {
+        if ("easy".equalsIgnoreCase(difficulty)) {
+            setDifficulty("average");
+        } else if ("average".equalsIgnoreCase(difficulty)) {
+            setDifficulty("hard");
+        }
+        startGame();
+    }
+
+    private boolean hasNextLevel() {
+        return "easy".equalsIgnoreCase(difficulty) || "average".equalsIgnoreCase(difficulty);
+    }
+
+    private void updateLevelLabel() {
+        if (levelLabel != null && difficulty != null) {
+            levelLabel.setText("Level: " + difficulty.toUpperCase());
+        }
     }
 }

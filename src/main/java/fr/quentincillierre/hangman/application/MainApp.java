@@ -17,7 +17,17 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
-        showIntroScene();
+        showMainMenuScene();
+    }
+
+    public static void showMainMenuScene() throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("main-menu.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 650, 650);
+        primaryStage.setTitle("Codebreaker: Freedom | Execution");
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
 
     public static void showIntroScene() throws Exception {

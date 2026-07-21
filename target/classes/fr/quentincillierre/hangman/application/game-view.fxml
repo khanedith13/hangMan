@@ -23,6 +23,12 @@
         </font>
     </Label>
 
+    <Label fx:id="levelLabel" alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="40.0" prefWidth="240.0" text="Level: EASY" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="14.0">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
     <Label fx:id="wordLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="384.0" prefHeight="75.0" prefWidth="800.0" text="Label" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="384.0">
         <font>
             <Font size="61.0" />
@@ -39,7 +45,8 @@
         </font>
     </Label>
 
-    <Button fx:id="restartButton" text="Restart" onAction="#onRestart" visible="false" prefWidth="200.0" layoutX="225.0" layoutY="470.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0" />
+    <Button fx:id="restartButton" text="Restart" onAction="#onRestart" visible="false" prefWidth="180.0" layoutX="225.0" layoutY="470.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0" />
+    <Button fx:id="nextLevelButton" text="Next Level" onAction="#onNextLevel" visible="false" prefWidth="180.0" layoutX="425.0" layoutY="470.0" AnchorPane.leftAnchor="425.0" AnchorPane.topAnchor="470.0" />
 
     <GridPane fx:id="keyboardGrid" alignment="CENTER" hgap="8.0" layoutX="1.0" layoutY="511.0" prefHeight="125.0" prefWidth="650.0" vgap="6.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0">
         <columnConstraints>
