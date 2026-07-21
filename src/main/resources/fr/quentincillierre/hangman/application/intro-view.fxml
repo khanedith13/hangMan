@@ -19,7 +19,7 @@
                     <Font size="32.0" />
                 </font>
             </Label>
-            <Label fx:id="storyLabel" wrapText="true" textAlignment="CENTER" prefWidth="520.0">
+            <Label fx:id="storyLabel" wrapText="true" textAlignment="CENTER" prefWidth="520.0" text="">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -28,14 +28,12 @@
     </center>
 
     <bottom>
-            <HBox spacing="20.0" alignment="CENTER">
+        <HBox spacing="20.0" alignment="CENTER">
             <padding>
                 <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
             </padding>
-                <Button text="Easy" onAction="#onContinueWithDifficulty" prefWidth="120.0" />
-                <Button text="Average" onAction="#onContinueWithDifficulty" prefWidth="120.0" />
-                <Button text="Hard" onAction="#onContinueWithDifficulty" prefWidth="120.0" />
-                <Button fx:id="exitButton" text="Exit" onAction="#onExit" prefWidth="120.0" />
+            <Button fx:id="startButton" text="Start" onAction="#onContinue" prefWidth="160.0" visible="false" />
+            <Button fx:id="exitButton" text="Exit" onAction="#onExit" prefWidth="160.0" visible="false" />
         </HBox>
     </bottom>
 </BorderPane>
