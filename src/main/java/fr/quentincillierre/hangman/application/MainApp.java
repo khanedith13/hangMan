@@ -33,15 +33,19 @@ public class MainApp extends Application {
     }
 
     public static void showGameScene() throws Exception {
-        if (gameScene == null) {
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("game-view.fxml"));
-            Parent root = loader.load();
-            GameController controller = loader.getController();
-            Scene scene = new Scene(root, 650, 650);
-            scene.setOnKeyTyped(event -> controller.handleKeyboardInput(event.getCharacter()));
-            gameScene = scene;
-        }
-        primaryStage.setScene(gameScene);
+        showGameSceneWithDifficulty("easy");
+    }
+
+    public static void showGameSceneWithDifficulty(String difficulty) throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("game-view.fxml"));
+        Parent root = loader.load();
+        GameController controller = loader.getController();
+        Scene scene = new Scene(root, 650, 650);
+        scene.setOnKeyTyped(event -> controller.handleKeyboardInput(event.getCharacter()));
+
+        controller.setDifficulty(difficulty);
+
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

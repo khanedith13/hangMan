@@ -15,9 +15,6 @@ public class IntroController {
     private Label storyLabel;
 
     @FXML
-    private Button continueButton;
-
-    @FXML
     private Button exitButton;
 
     private final String storyText = "Year 2084...\n\n" +
@@ -28,8 +25,14 @@ public class IntroController {
     @FXML
     public void initialize() {
         storyLabel.setText("");
-        continueButton.setDisable(true);
         animateStoryIntro();
+    }
+
+    @FXML
+    private void onContinueWithDifficulty(javafx.event.ActionEvent event) throws Exception {
+        // Button text holds difficulty: "Easy", "Average", "Hard"
+        String difficulty = ((javafx.scene.control.Button) event.getSource()).getText().toLowerCase();
+        MainApp.showGameSceneWithDifficulty(difficulty);
     }
 
     private void animateStoryIntro() {
@@ -44,7 +47,7 @@ public class IntroController {
             }));
         }
 
-        storyTimeline.setOnFinished(event -> continueButton.setDisable(false));
+        storyTimeline.setOnFinished(event -> { /* intro finished */ });
         storyTimeline.play();
     }
 

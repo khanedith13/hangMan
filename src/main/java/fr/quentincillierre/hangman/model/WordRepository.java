@@ -12,7 +12,6 @@ public class WordRepository {
 
     public String getRandomWord() {
         List<String> words = new ArrayList<>();
-
         InputStream is = getClass().getResourceAsStream("/words.txt");
 
         try (Scanner scanner = new Scanner(new BufferedReader(new InputStreamReader(is)))) {
@@ -21,6 +20,23 @@ public class WordRepository {
             }
         } catch (Exception e) {
             return "COMPUTER"; // Mot de secours si le fichier est introuvable
+        }
+
+        Random random = new Random();
+        return words.get(random.nextInt(words.size()));
+    }
+
+    public String getRandomWord(String resourcePath) {
+        List<String> words = new ArrayList<>();
+
+        InputStream is = getClass().getResourceAsStream(resourcePath);
+
+        try (Scanner scanner = new Scanner(new BufferedReader(new InputStreamReader(is)))) {
+            while (scanner.hasNextLine()) {
+                words.add(scanner.nextLine().trim().toUpperCase());
+            }
+        } catch (Exception e) {
+            return "COMPUTER";
         }
 
         Random random = new Random();

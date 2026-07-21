@@ -16,6 +16,12 @@
         </font>
     </Label>
 
+    <Label fx:id="timerLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="520.0" layoutY="14.0" prefHeight="40.0" prefWidth="120.0" text="" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
     <Label fx:id="wordLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="384.0" prefHeight="75.0" prefWidth="800.0" text="Label" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="384.0">
         <font>
             <Font size="61.0" />

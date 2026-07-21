@@ -64,6 +64,11 @@ public class HangmanModel {
         return currentWrongs >= maxWrongs;
     }
 
+    // Force the model into a losing state (used when timer expires)
+    public void forceLose(){
+        this.currentWrongs = this.maxWrongs;
+    }
+
     public static void main(String[] args){
         HangmanModel game = new HangmanModel("java");
         game.tryLetter('R');

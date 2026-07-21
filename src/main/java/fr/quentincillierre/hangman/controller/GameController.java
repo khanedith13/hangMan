@@ -25,6 +25,9 @@ public class GameController {
     private Label resultLabel;
 
     @FXML
+    private Label timerLabel;
+
+    @FXML
     private ImageView hangmanImageView;
 
     @FXML
@@ -33,6 +36,9 @@ public class GameController {
     private HangmanModel model;
     private Timeline storyTimeline;
     private String storyText;
+    private Timeline countdownTimeline;
+    private int timeLeftSeconds;
+    private String difficulty;
 
     // Automatically call by JavaFX when FXML file is loaded
     @FXML
@@ -80,9 +86,53 @@ public class GameController {
         keyboardGrid.setDisable(false);
 
         WordRepository wordRepository = new WordRepository();
-        this.model = new HangmanModel(wordRepository.getRandomWord());
+        String resource = "/words.txt";
+        int seconds = 10;
+        if (this.difficulty != null){
+            switch (this.difficulty.toLowerCase()){
+                case "easy":
+                    resource = "/easy-words.txt"; seconds = 10; break;
+                case "average":
+                    resource = "/average-words.txt"; seconds = 15; break;
+                case "hard":
+                    resource = "/hard-words.txt"; seconds = 20; break;
+                default:
+                    resource = "/words.txt"; seconds = 10;
+            }
+        }
+
+        this.model = new HangmanModel(wordRepository.getRandomWord(resource));
+        this.timeLeftSeconds = seconds;
+        startCountdown();
 
         refreshUI();
+    }
+
+    public void setDifficulty(String difficulty){
+        this.difficulty = difficulty;
+    }
+
+    private void startCountdown(){
+        if (countdownTimeline != null){
+            countdownTimeline.stop();
+        }
+        countdownTimeline = new Timeline();
+        countdownTimeline.setCycleCount(Timeline.INDEFINITE);
+        countdownTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), ev -> {
+            timeLeftSeconds--;
+            timerLabel.setText(String.format("%02d", timeLeftSeconds));
+            if (timeLeftSeconds <= 0){
+                countdownTimeline.stop();
+                // force lose
+                model.forceLose();
+                resultLabel.setText("Time's up!");
+                keyboardGrid.setDisable(true);
+                refreshUI();
+            }
+        }));
+        // update initial display
+        timerLabel.setText(String.format("%02d", timeLeftSeconds));
+        countdownTimeline.playFromStart();
     }
 
     private void refreshUI() {
