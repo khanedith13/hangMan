@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.quentincillierre.hangman.controller.MainMenuController"
-            prefWidth="650.0" prefHeight="650.0"
-            styleClass="main-root">
+<BorderPane prefHeight="650.0" prefWidth="650.0" styleClass="main-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.MainMenuController">
     <center>
-        <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER" styleClass="menu-box">
-            <Label text="CODE BREAKER: FREEDOM | EXECUTION" styleClass="title-label">
+        <VBox alignment="CENTER" spacing="30.0" styleClass="menu-box" BorderPane.alignment="CENTER">
+         <Label alignment="TOP_LEFT" styleClass="title-label" text="CODE BREAKER:">
+            <font>
+               <Font size="36.0" />
+            </font>
+         </Label>
+            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="title-label" text="FREEDOM | EXECUTION">
                 <font>
                     <Font size="36.0" />
                 </font>
             </Label>
-            <Label text="Press Start to begin your escape." wrapText="true" textAlignment="CENTER" prefWidth="520.0" styleClass="subtitle-label">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="520.0" styleClass="subtitle-label" text="Press Start to begin your escape." textAlignment="CENTER" wrapText="true">
                 <font>
                     <Font size="20.0" />
                 </font>
             </Label>
-            <VBox spacing="16.0" alignment="CENTER">
-                <Button text="Start Game" onAction="#onStartGame" prefWidth="220.0" styleClass="game-button start-button" />
-                <Button text="Exit" onAction="#onExit" prefWidth="220.0" styleClass="game-button exit-button" />
+            <VBox alignment="CENTER" spacing="16.0">
+                <Button onAction="#onStartGame" prefWidth="220.0" styleClass="game-button start-button" text="Start Game" />
+                <Button onAction="#onExit" prefWidth="220.0" styleClass="game-button exit-button" text="Exit" />
             </VBox>
         </VBox>
     </center>

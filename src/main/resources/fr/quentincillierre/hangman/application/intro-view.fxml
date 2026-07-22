@@ -8,18 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.quentincillierre.hangman.controller.IntroController"
-            prefWidth="650.0" prefHeight="650.0" styleClass="intro-root">
+<BorderPane prefHeight="650.0" prefWidth="650.0" styleClass="intro-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.IntroController">
 
     <center>
-        <VBox alignment="CENTER" spacing="24.0" BorderPane.alignment="CENTER" styleClass="intro-card">
-            <Label text="CODE BREAKER: FREEDOM | EXECUTION" styleClass="title-label">
-                <font>
-                    <Font size="32.0" />
-                </font>
-            </Label>
-            <Label fx:id="storyLabel" wrapText="true" textAlignment="CENTER" prefWidth="520.0" text="" styleClass="story-label">
+        <VBox alignment="CENTER" spacing="24.0" styleClass="intro-card" BorderPane.alignment="CENTER">
+            <Label fx:id="storyLabel" prefWidth="520.0" styleClass="story-label" text="" textAlignment="CENTER" wrapText="true">
                 <font>
                     <Font size="22.0" />
                 </font>
@@ -28,14 +21,14 @@
     </center>
 
     <bottom>
-        <HBox spacing="20.0" alignment="CENTER" styleClass="difficulty-bar">
+        <HBox alignment="CENTER" spacing="20.0" styleClass="difficulty-bar">
             <padding>
-                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
-            <Button fx:id="easyButton" text="Easy" onAction="#onStartEasy" prefWidth="140.0" visible="false" styleClass="difficulty-button easy-button" />
-            <Button fx:id="averageButton" text="Average" onAction="#onStartAverage" prefWidth="140.0" visible="false" styleClass="difficulty-button average-button" />
-            <Button fx:id="hardButton" text="Hard" onAction="#onStartHard" prefWidth="140.0" visible="false" styleClass="difficulty-button hard-button" />
-            <Button fx:id="exitButton" text="Exit" onAction="#onExit" prefWidth="140.0" visible="false" styleClass="difficulty-button exit-button" />
+            <Button fx:id="easyButton" onAction="#onStartEasy" prefWidth="140.0" styleClass="difficulty-button easy-button" text="Easy" visible="false" />
+            <Button fx:id="averageButton" onAction="#onStartAverage" prefWidth="140.0" styleClass="difficulty-button average-button" text="Average" visible="false" />
+            <Button fx:id="hardButton" onAction="#onStartHard" prefWidth="140.0" styleClass="difficulty-button hard-button" text="Hard" visible="false" />
+            <Button fx:id="exitButton" onAction="#onExit" prefWidth="140.0" styleClass="difficulty-button exit-button" text="Exit" visible="false" />
         </HBox>
     </bottom>
 </BorderPane>
