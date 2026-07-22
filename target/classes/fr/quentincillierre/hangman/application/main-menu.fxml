@@ -7,34 +7,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/26"
-            xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="fr.quentincillierre.hangman.controller.MainMenuController"
-            prefWidth="650.0" prefHeight="650.0"
-            stylesheets="design.css"
-            styleClass="main-root">
+            prefWidth="650.0" prefHeight="650.0">
 
     <center>
-        <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER" styleClass="menu-box">
-            <Label text="CODE BREAKER: FREEDOM | EXECUTION" styleClass="title-label">
+        <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+            <Label text="CODE BREAKER: FREEDOM | EXECUTION">
                 <font>
                     <Font size="36.0" />
                 </font>
             </Label>
-
-            <Label text="Press Start to begin your escape."
-                   wrapText="true"
-                   textAlignment="CENTER"
-                   prefWidth="520.0"
-                   styleClass="subtitle-label">
+            <Label text="Press Start to begin your escape." wrapText="true" textAlignment="CENTER" prefWidth="520.0">
                 <font>
                     <Font size="20.0" />
                 </font>
             </Label>
-
             <VBox spacing="16.0" alignment="CENTER">
-                <Button text="Start Game" onAction="#onStartGame" prefWidth="220.0" styleClass="game-button start-button" />
-                <Button text="Exit" onAction="#onExit" prefWidth="220.0" styleClass="game-button exit-button" />
+                <Button text="Start Game" onAction="#onStartGame" prefWidth="220.0" />
+                <Button text="Exit" onAction="#onExit" prefWidth="220.0" />
             </VBox>
         </VBox>
     </center>
