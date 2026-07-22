@@ -32,8 +32,10 @@
             <padding>
                 <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
             </padding>
-            <Button fx:id="startButton" text="Start" onAction="#onContinue" prefWidth="160.0" visible="false" />
-            <Button fx:id="exitButton" text="Exit" onAction="#onExit" prefWidth="160.0" visible="false" />
+            <Button fx:id="easyButton" text="Easy" onAction="#onStartEasy" prefWidth="140.0" visible="false" />
+            <Button fx:id="averageButton" text="Average" onAction="#onStartAverage" prefWidth="140.0" visible="false" />
+            <Button fx:id="hardButton" text="Hard" onAction="#onStartHard" prefWidth="140.0" visible="false" />
+            <Button fx:id="exitButton" text="Exit" onAction="#onExit" prefWidth="140.0" visible="false" />
         </HBox>
     </bottom>
 </BorderPane>

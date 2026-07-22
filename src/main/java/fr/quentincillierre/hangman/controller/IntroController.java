@@ -15,7 +15,13 @@ public class IntroController {
     private Label storyLabel;
 
     @FXML
-    private Button startButton;
+    private Button easyButton;
+
+    @FXML
+    private Button averageButton;
+
+    @FXML
+    private Button hardButton;
 
     @FXML
     private Button exitButton;
@@ -29,7 +35,9 @@ public class IntroController {
     public void initialize() {
         storyLabel.setText("");
         // hide buttons until narration finishes
-        startButton.setVisible(false);
+        easyButton.setVisible(false);
+        averageButton.setVisible(false);
+        hardButton.setVisible(false);
         exitButton.setVisible(false);
         animateStoryIntro();
     }
@@ -47,15 +55,27 @@ public class IntroController {
         }
 
         storyTimeline.setOnFinished(event -> {
-            startButton.setVisible(true);
+            easyButton.setVisible(true);
+            averageButton.setVisible(true);
+            hardButton.setVisible(true);
             exitButton.setVisible(true);
         });
         storyTimeline.play();
     }
 
     @FXML
-    private void onContinue() throws Exception {
-        MainApp.showGameScene();
+    private void onStartEasy() throws Exception {
+        MainApp.showGameSceneWithDifficulty("easy");
+    }
+
+    @FXML
+    private void onStartAverage() throws Exception {
+        MainApp.showGameSceneWithDifficulty("average");
+    }
+
+    @FXML
+    private void onStartHard() throws Exception {
+        MainApp.showGameSceneWithDifficulty("hard");
     }
 
     @FXML

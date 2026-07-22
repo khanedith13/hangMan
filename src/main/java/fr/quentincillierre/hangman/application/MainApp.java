@@ -45,13 +45,27 @@ public class MainApp extends Application {
     }
 
     public static void showGameSceneWithDifficulty(String difficulty) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("game-view.fxml"));
+        String viewName;
+        switch (difficulty.toLowerCase()) {
+            case "average":
+                viewName = "average-level.fxml";
+                break;
+            case "hard":
+                viewName = "hard-level.fxml";
+                break;
+            default:
+                viewName = "easy-level.fxml";
+                break;
+        }
+
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(viewName));
         Parent root = loader.load();
         GameController controller = loader.getController();
+        controller.setDifficulty(difficulty);
+        controller.initializeGame();
+
         Scene scene = new Scene(root, 650, 650);
         scene.setOnKeyTyped(event -> controller.handleKeyboardInput(event.getCharacter()));
-
-        controller.setDifficulty(difficulty);
 
         primaryStage.setScene(scene);
         primaryStage.show();

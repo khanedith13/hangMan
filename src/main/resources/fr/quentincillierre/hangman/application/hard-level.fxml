@@ -17,19 +17,19 @@
         </font>
     </Label>
 
-    <Label fx:id="levelLabel" layoutX="20.0" layoutY="80.0" prefHeight="30.0" prefWidth="260.0" text="LEVEL: EASY" alignment="CENTER_LEFT">
+    <Label fx:id="levelLabel" layoutX="20.0" layoutY="80.0" prefHeight="30.0" prefWidth="260.0" text="LEVEL: HARD" alignment="CENTER_LEFT">
         <font>
             <Font size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="difficultyLabel" layoutX="20.0" layoutY="110.0" prefHeight="24.0" prefWidth="260.0" text="Difficulty: EASY" alignment="CENTER_LEFT">
+    <Label fx:id="difficultyLabel" layoutX="20.0" layoutY="110.0" prefHeight="24.0" prefWidth="260.0" text="Difficulty: HARD" alignment="CENTER_LEFT">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
 
-    <Label fx:id="timerLabel" layoutX="420.0" layoutY="80.0" prefHeight="40.0" prefWidth="210.0" text="90" alignment="CENTER_RIGHT">
+    <Label fx:id="timerLabel" layoutX="420.0" layoutY="80.0" prefHeight="40.0" prefWidth="210.0" text="30" alignment="CENTER_RIGHT">
         <font>
             <Font size="28.0" />
         </font>
