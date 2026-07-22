@@ -13,7 +13,7 @@
             styleClass="main-root">
     <center>
         <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER" styleClass="menu-box">
-            <Label text="CODE BREAKER: FREEDOM | EXECUTION">
+            <Label text="CODE BREAKER: FREEDOM | EXECUTION" styleClass="title-label">
                 <font>
                     <Font size="36.0" />
                 </font>

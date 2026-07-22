@@ -1,55 +1,162 @@
-.main-root {
-    -fx-background-color: linear-gradient(to bottom, #0f172a, #111827, #1f2937);
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-font-smoothing-type: gray;
 }
 
-.menu-box {
-    -fx-padding: 40;
-    -fx-background-color: rgba(15, 23, 42, 0.72);
-    -fx-background-radius: 24;
-    -fx-border-color: rgba(255, 255, 255, 0.12);
-    -fx-border-width: 1.5;
-    -fx-border-radius: 24;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 25, 0.35, 0, 8);
+.main-root,
+.intro-root,
+.game-root,
+.executed-root {
+    -fx-background-color: linear-gradient(to bottom right, #08111f 0%, #10283d 52%, #123c4a 100%);
+}
+
+.menu-box,
+.intro-card,
+.executed-card {
+    -fx-padding: 42;
+    -fx-background-color: rgba(12, 28, 45, 0.78);
+    -fx-background-radius: 26;
+    -fx-border-color: rgba(166, 236, 240, 0.25);
+    -fx-border-width: 1;
+    -fx-border-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.42), 28, 0.28, 0, 12);
 }
 
 .title-label {
-    -fx-text-fill: #f8fafc;
+    -fx-text-fill: #f3fbff;
     -fx-font-weight: bold;
     -fx-letter-spacing: 1.2px;
 }
 
-.subtitle-label {
-    -fx-text-fill: #cbd5e1;
-    -fx-opacity: 0.95;
+.subtitle-label,
+.story-label,
+.muted-label {
+    -fx-text-fill: #b7ced8;
+    -fx-opacity: 0.96;
 }
 
-.game-button {
-    -fx-background-radius: 14;
-    -fx-font-size: 18px;
+.game-button,
+.difficulty-button,
+.guess-button,
+.secondary-button,
+.danger-button {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
+    -fx-text-fill: #f6fdff;
     -fx-cursor: hand;
     -fx-padding: 12 20 12 20;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 14, 0.25, 0, 4);
-    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 12, 0.22, 0, 5);
 }
 
-.start-button {
-    -fx-background-color: linear-gradient(to right, #16a34a, #22c55e);
+.game-button,
+.difficulty-button,
+.guess-button {
+    -fx-background-color: linear-gradient(to bottom right, #147d87, #1bb6b0);
+    -fx-border-color: rgba(177, 255, 246, 0.42);
 }
 
-.start-button:hover {
-    -fx-background-color: linear-gradient(to right, #22c55e, #4ade80);
+.game-button:hover,
+.difficulty-button:hover,
+.guess-button:hover,
+.secondary-button:hover,
+.danger-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #23aab0, #42d5c3);
     -fx-scale-x: 1.03;
     -fx-scale-y: 1.03;
 }
 
-.exit-button {
-    -fx-background-color: linear-gradient(to right, #991b1b, #dc2626);
+.exit-button,
+.danger-button {
+    -fx-background-color: linear-gradient(to bottom right, #9b3c4d, #d55b61);
+    -fx-border-color: rgba(255, 196, 196, 0.42);
 }
 
-.exit-button:hover {
-    -fx-background-color: linear-gradient(to right, #dc2626, #ef4444);
-    -fx-scale-x: 1.03;
-    -fx-scale-y: 1.03;
+.exit-button:hover,
+.danger-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #bd4a59, #ed7973);
+}
+
+.average-button {
+    -fx-background-color: linear-gradient(to bottom right, #bd7a31, #e7aa46);
+    -fx-border-color: rgba(255, 232, 172, 0.5);
+}
+
+.hard-button {
+    -fx-background-color: linear-gradient(to bottom right, #8e3448, #c5505a);
+    -fx-border-color: rgba(255, 196, 196, 0.45);
+}
+
+.difficulty-bar {
+    -fx-padding: 18 24 24 24;
+}
+
+.game-root > .label,
+.game-root #levelLabel,
+.game-root #difficultyLabel,
+.game-root #wrongGuessesLabel,
+.game-root #executionProgressLabel,
+.game-root #guessedLettersLabel {
+    -fx-text-fill: #d1e7ec;
+}
+
+.game-root #levelLabel {
+    -fx-text-fill: #7de2dc;
+    -fx-font-weight: bold;
+}
+
+.game-root #timerLabel {
+    -fx-text-fill: #8df0df;
+    -fx-font-weight: bold;
+}
+
+.game-root #wordLabel {
+    -fx-text-fill: #f4ffff;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 5px;
+}
+
+.game-root #resultLabel {
+    -fx-text-fill: #8df0df;
+    -fx-font-weight: bold;
+}
+
+.game-root #guessedLettersLabel {
+    -fx-background-color: rgba(8, 24, 39, 0.62);
+    -fx-background-radius: 12;
+    -fx-padding: 12;
+}
+
+.guess-input {
+    -fx-background-color: rgba(228, 250, 252, 0.1);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(170, 239, 238, 0.38);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-text-fill: #f3ffff;
+    -fx-prompt-text-fill: #88aab3;
+    -fx-padding: 10 14;
+}
+
+.guess-input:focused {
+    -fx-border-color: #72e6dc;
+    -fx-effect: dropshadow(gaussian, rgba(92, 226, 216, 0.28), 12, 0.2, 0, 0);
+}
+
+.secondary-button {
+    -fx-background-color: rgba(128, 174, 184, 0.22);
+    -fx-border-color: rgba(191, 230, 233, 0.3);
+}
+
+.danger-title,
+.danger-label {
+    -fx-text-fill: #ff9692;
+    -fx-font-weight: bold;
+}
+
+.executed-card {
+    -fx-padding: 30;
+    -fx-border-color: rgba(255, 151, 146, 0.3);
 }
