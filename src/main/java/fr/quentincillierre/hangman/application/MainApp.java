@@ -24,6 +24,18 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("main-menu.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 650, 650);
+        // Debug: report stylesheets and root style classes, and add fallback if missing
+        System.out.println("MainMenu: initial scene stylesheets=" + scene.getStylesheets());
+        System.out.println("MainMenu: root style classes=" + root.getStyleClass());
+        if (scene.getStylesheets().isEmpty()) {
+            if (MainApp.class.getResource("design.css") != null) {
+                String cssUrl = MainApp.class.getResource("design.css").toExternalForm();
+                scene.getStylesheets().add(cssUrl);
+                System.out.println("MainMenu: programmatically added stylesheet: " + cssUrl);
+            } else {
+                System.out.println("MainMenu: design.css not found next to FXML resource.");
+            }
+        }
         primaryStage.setTitle("Codebreaker: Freedom | Execution");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
