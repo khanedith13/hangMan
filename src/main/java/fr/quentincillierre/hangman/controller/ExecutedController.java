@@ -13,4 +13,13 @@ public class ExecutedController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void onBackToMainMenu() {
+        try {
+            MainApp.showMainMenuScene();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
