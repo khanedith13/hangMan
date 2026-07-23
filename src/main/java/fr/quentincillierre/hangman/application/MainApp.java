@@ -5,14 +5,16 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
     private static Stage primaryStage;
     private static Scene gameScene;
+    private static MediaPlayer executedPlayer;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -78,11 +80,16 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("executed-view.fxml"));
         Parent root = loader.load();
 
-        // set the execution image programmatically to ensure correct resource path
-        ImageView imgView = (ImageView) root.lookup("#executedImage");
-        if (imgView != null) {
-            Image img = new Image(MainApp.class.getResourceAsStream("/pictures/10-hangman.png"));
-            imgView.setImage(img);
+        MediaView videoView = (MediaView) root.lookup("#executedVideoView");
+        java.net.URL videoResource = MainApp.class.getResource("/videos/freedom.mp4");
+        if (videoView != null && videoResource != null) {
+            if (executedPlayer != null) {
+                executedPlayer.dispose();
+            }
+            executedPlayer = new MediaPlayer(new Media(videoResource.toExternalForm()));
+            videoView.setMediaPlayer(executedPlayer);
+            executedPlayer.setAutoPlay(true);
+            executedPlayer.setOnEndOfMedia(executedPlayer::stop);
         }
 
         Scene executedScene = new Scene(root, 650, 650);
