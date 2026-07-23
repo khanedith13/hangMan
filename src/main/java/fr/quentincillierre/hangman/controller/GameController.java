@@ -141,10 +141,33 @@ public class GameController {
 
     private void generateKeyboard() {
         keyboardGrid.getChildren().clear();
-        keyboardGrid.setPrefWidth(440);
-        keyboardGrid.getColumnConstraints().forEach(constraint -> constraint.setPrefWidth(40));
-        String[] rows = {"QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"};
+        keyboardGrid.setPrefWidth(520);
+        keyboardGrid.setPrefHeight(160);
+        keyboardGrid.setHgap(8);
+        keyboardGrid.setVgap(8);
+        keyboardGrid.setStyle("-fx-padding: 10; -fx-background-color: rgba(6, 12, 9, 0.70); -fx-background-radius: 20; -fx-border-color: rgba(74, 222, 128, 0.45); -fx-border-width: 1.4; -fx-border-radius: 20; -fx-effect: dropshadow(gaussian, rgba(34,197,94,0.28), 16, 0.25, 0, 4);");
+        keyboardGrid.setTranslateX(0);
+        keyboardGrid.setTranslateY(0);
 
+        keyboardGrid.getColumnConstraints().clear();
+        keyboardGrid.getRowConstraints().clear();
+
+        for (int i = 0; i < 10; i++) {
+            ColumnConstraints column = new ColumnConstraints();
+            column.setPrefWidth(46);
+            column.setMinWidth(46);
+            column.setMaxWidth(46);
+            keyboardGrid.getColumnConstraints().add(column);
+        }
+        for (int i = 0; i < 3; i++) {
+            RowConstraints row = new RowConstraints();
+            row.setPrefHeight(50);
+            row.setMinHeight(50);
+            row.setMaxHeight(50);
+            keyboardGrid.getRowConstraints().add(row);
+        }
+
+        String[] rows = {"QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"};
         for (int row = 0; row < rows.length; row++) {
             String rowLetters = rows[row];
             int offset = row == 0 ? 0 : row == 1 ? 1 : 2;
@@ -152,9 +175,9 @@ public class GameController {
             for (int col = 0; col < rowLetters.length(); col++) {
                 char c = rowLetters.charAt(col);
                 Button letterButton = new Button(String.valueOf(c));
-                letterButton.setPrefWidth(40);
-                letterButton.setPrefHeight(40);
-                letterButton.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+                letterButton.setPrefWidth(46);
+                letterButton.setPrefHeight(50);
+                letterButton.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #f8fff9; -fx-background-color: linear-gradient(to bottom, #166534, #22c55e); -fx-background-radius: 12; -fx-border-color: rgba(220, 252, 231, 0.35); -fx-border-width: 1.1; -fx-border-radius: 12; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(34,197,94,0.30), 10, 0.2, 0, 3);");
                 letterButton.setOnAction(event -> {
                     if (!letterButton.isDisable()) {
                         handleKeyboardInput(letterButton.getText());
@@ -164,7 +187,6 @@ public class GameController {
                 keyboardGrid.add(letterButton, offset + col, row);
             }
         }
-
     }
 
     private void initializeIntro() {

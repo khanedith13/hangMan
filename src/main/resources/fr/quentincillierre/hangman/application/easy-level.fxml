@@ -87,7 +87,7 @@
                    style="-fx-background-color: linear-gradient(to right, #15803d, #22c55e); -fx-background-radius: 14; -fx-text-fill: #04140a; -fx-font-weight: bold; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(34,197,94,0.35), 12, 0.3, 0, 3);" />
       </children>
    </HBox>
-    <GridPane fx:id="keyboardGrid" layoutX="105.0" layoutY="475.0" prefHeight="125.0" prefWidth="440.0">
+    <GridPane fx:id="keyboardGrid" layoutX="65.0" layoutY="465.0" prefHeight="160.0" prefWidth="520.0" style="-fx-background-color: rgba(6,12,9,0.70); -fx-background-radius: 20; -fx-border-color: rgba(74,222,128,0.45); -fx-border-width: 1.4; -fx-border-radius: 20;">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
