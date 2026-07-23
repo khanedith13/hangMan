@@ -15,12 +15,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 public class GameController {
-
-    @FXML
-    private Label titleLabel;
 
     @FXML
     private Label levelLabel;
@@ -64,27 +64,29 @@ public class GameController {
     @FXML
     private GridPane keyboardGrid;
 
-        @FXML
-        private Label storyLabel;
+    @FXML
+    private MediaView victoryVideoView;
 
-        @FXML
-        private Button easyButton;
+    @FXML
+    private Label victoryStatusLabel;
 
-        @FXML
-        private Button averageButton;
+    @FXML
+    private Label storyLabel;
 
-        @FXML
-        private Button hardButton;
+    @FXML
+    private Button startButton;
 
-        @FXML
-        private Button exitButton;
+    @FXML
+    private Button exitButton;
 
     private HangmanModel model;
     private Timeline countdownTimeline;
-        private Timeline storyTimeline;
+    private Timeline storyTimeline;
     private int timeLeftSeconds;
     private String difficulty;
-        private final String storyText = "Year 2084...\n\n"
+    private MediaPlayer victoryPlayer;
+    private boolean victoryShown;
+    private final String storyText = "Year 2084...\n\n"
             + "You have been captured.\n\n"
             + "Three encrypted security systems block your escape.\n\n"
             + "Crack the codes before your execution.";
@@ -94,9 +96,25 @@ public class GameController {
         if (storyLabel != null) {
             initializeIntro();
         }
-        if (guessTextField != null) {
+        if (guessTextField != null || keyboardGrid != null) {
             initializeGameView();
         }
+        if (victoryVideoView != null) {
+            initializeVictoryView();
+        }
+    }
+
+    private void initializeVictoryView() {
+        java.net.URL videoResource = getClass().getResource("/videos/freedom.mp4");
+        if (videoResource == null) {
+            victoryStatusLabel.setText("Victory video not found. Add videos/freedom.mp4 to the resources.");
+            return;
+        }
+
+        victoryPlayer = new MediaPlayer(new Media(videoResource.toExternalForm()));
+        victoryVideoView.setMediaPlayer(victoryPlayer);
+        victoryPlayer.setAutoPlay(true);
+        victoryPlayer.setOnEndOfMedia(victoryPlayer::stop);
     }
 
     private void generateKeyboard() {
@@ -129,10 +147,10 @@ public class GameController {
 
     private void initializeIntro() {
         storyLabel.setText("");
-        easyButton.setVisible(false);
-        averageButton.setVisible(false);
-        hardButton.setVisible(false);
+        startButton.setVisible(false);
         exitButton.setVisible(false);
+        startButton.setDisable(true);
+        exitButton.setDisable(true);
 
         storyTimeline = new Timeline();
         for (int i = 0; i < storyText.length(); i++) {
@@ -141,10 +159,10 @@ public class GameController {
                     storyLabel.setText(storyText.substring(0, index))));
         }
         storyTimeline.setOnFinished(event -> {
-            easyButton.setVisible(true);
-            averageButton.setVisible(true);
-            hardButton.setVisible(true);
+            startButton.setVisible(true);
             exitButton.setVisible(true);
+            startButton.setDisable(false);
+            exitButton.setDisable(false);
         });
         storyTimeline.play();
     }
@@ -280,6 +298,10 @@ public class GameController {
             if (countdownTimeline != null) {
                 countdownTimeline.stop();
             }
+            if (model.isWin() && "hard".equalsIgnoreCase(difficulty) && !victoryShown) {
+                victoryShown = true;
+                navigateTo(() -> MainApp.showVictoryScene());
+            }
         }
     }
 
@@ -327,6 +349,10 @@ public class GameController {
 
     @FXML
     private void onRestart() {
+        if (model != null && model.isLose()) {
+            navigateTo(() -> MainApp.showMainMenuScene());
+            return;
+        }
         startGame();
     }
 
@@ -362,16 +388,6 @@ public class GameController {
     @FXML
     private void onStartEasy() {
         navigateTo(() -> MainApp.showGameSceneWithDifficulty("easy"));
-    }
-
-    @FXML
-    private void onStartAverage() {
-        navigateTo(() -> MainApp.showGameSceneWithDifficulty("average"));
-    }
-
-    @FXML
-    private void onStartHard() {
-        navigateTo(() -> MainApp.showGameSceneWithDifficulty("hard"));
     }
 
     @FXML

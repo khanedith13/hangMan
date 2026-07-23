@@ -91,6 +91,15 @@ public class MainApp extends Application {
         primaryStage.show();
     }
 
+    public static void showVictoryScene() throws Exception {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("victory-view.fxml"));
+        Parent root = loader.load();
+        Scene victoryScene = new Scene(root, 650, 650);
+        applyStylesheet(victoryScene);
+        primaryStage.setScene(victoryScene);
+        primaryStage.show();
+    }
+
     private static void applyStylesheet(Scene scene) {
         String cssUrl = MainApp.class.getResource("design.css").toExternalForm();
         if (!scene.getStylesheets().contains(cssUrl)) {

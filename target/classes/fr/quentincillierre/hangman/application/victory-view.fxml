@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="650.0" prefWidth="650.0" styleClass="victory-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController">
+    <center>
+        <VBox alignment="CENTER" spacing="18.0" styleClass="victory-box" BorderPane.alignment="CENTER">
+            <Label styleClass="victory-title" text="FREEDOM ACHIEVED">
+                <font>
+                    <Font size="34.0" />
+                </font>
+            </Label>
+            <StackPane prefHeight="420.0" prefWidth="600.0" styleClass="victory-video-frame">
+                <MediaView fx:id="victoryVideoView" fitHeight="420.0" fitWidth="600.0" preserveRatio="true" />
+                <Label fx:id="victoryStatusLabel" maxWidth="520.0" textAlignment="CENTER" wrapText="true" />
+            </StackPane>
+            <Label styleClass="victory-message" text="You cracked every security system and earned your freedom.">
+            <font>
+               <Font size="22.0" />
+            </font></Label>
+        </VBox>
+    </center>
+</BorderPane>

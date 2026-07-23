@@ -35,6 +35,12 @@
     -fx-opacity: 0.96;
 }
 
+.level-label {
+    -fx-text-fill: #d1e7ec;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
 .game-button,
 .difficulty-button,
 .guess-button,
