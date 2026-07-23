@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.ExecutedController">
+<BorderPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController" styleClass="executed-root">
     <center>
-        <VBox alignment="CENTER" spacing="12.0" BorderPane.alignment="CENTER">
-            <ImageView fx:id="executedImage" fitHeight="320.0" fitWidth="420.0" preserveRatio="true" />
-            <Label text="MISSION FAILED">
+        <VBox alignment="CENTER" spacing="12.0" BorderPane.alignment="CENTER" styleClass="executed-card">
+            <ImageView fx:id="executedImage" fitHeight="320.0" fitWidth="420.0" preserveRatio="true" styleClass="executed-image" />
+            <Label text="MISSION FAILED" styleClass="danger-title">
                 <font>
                     <Font size="36.0" />
                 </font>
@@ -21,14 +21,14 @@
                     <Insets top="6.0" />
                 </padding>
             </Label>
-            <Label text="EXECUTED">
+            <Label text="EXECUTED" styleClass="danger-label">
                 <font>
                     <Font size="24.0" />
                 </font>
             </Label>
-            <Label text="No choice but to restart." />
+            <Label text="No choice but to restart." styleClass="muted-label" />
             <HBox alignment="CENTER" spacing="12.0">
-                <Button onAction="#onBackToMainMenu" prefWidth="140.0" text="Restart" />
+                <Button onAction="#onBackToMainMenu" prefWidth="140.0" text="Restart" styleClass="danger-button" />
             </HBox>
         </VBox>
     </center>
