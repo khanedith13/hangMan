@@ -81,7 +81,7 @@ public class MainApp extends Application {
         Parent root = loader.load();
 
         MediaView videoView = (MediaView) root.lookup("#executedVideoView");
-        java.net.URL videoResource = MainApp.class.getResource("/videos/freedom.mp4");
+        java.net.URL videoResource = MainApp.class.getResource("/videos/execution.mp4");
         if (videoView != null && videoResource != null) {
             if (executedPlayer != null) {
                 executedPlayer.dispose();

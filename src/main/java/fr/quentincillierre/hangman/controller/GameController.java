@@ -71,6 +71,9 @@ public class GameController {
     private Label victoryStatusLabel;
 
     @FXML
+    private MediaView executedVideoView;
+
+    @FXML
     private Label storyLabel;
 
     @FXML
@@ -85,6 +88,7 @@ public class GameController {
     private int timeLeftSeconds;
     private String difficulty;
     private MediaPlayer victoryPlayer;
+    private MediaPlayer executionPlayer;
     private boolean victoryShown;
     private final String storyText = "Year 2084...\n\n"
             + "You have been captured.\n\n"
@@ -102,6 +106,9 @@ public class GameController {
         if (victoryVideoView != null) {
             initializeVictoryView();
         }
+        if (executedVideoView != null) {
+            initializeExecutedView();
+        }
     }
 
     private void initializeVictoryView() {
@@ -115,6 +122,19 @@ public class GameController {
         victoryVideoView.setMediaPlayer(victoryPlayer);
         victoryPlayer.setAutoPlay(true);
         victoryPlayer.setOnEndOfMedia(victoryPlayer::stop);
+    }
+
+    private void initializeExecutedView() {
+        java.net.URL videoResource = getClass().getResource("/videos/execution.mp4");
+        if (videoResource == null) {
+            System.err.println("Execution video not found. Add videos/execution.mp4 to the resources.");
+            return;
+        }
+
+        executionPlayer = new MediaPlayer(new Media(videoResource.toExternalForm()));
+        executedVideoView.setMediaPlayer(executionPlayer);
+        executionPlayer.setAutoPlay(true);
+        executionPlayer.setOnEndOfMedia(executionPlayer::stop);
     }
 
     private void generateKeyboard() {
