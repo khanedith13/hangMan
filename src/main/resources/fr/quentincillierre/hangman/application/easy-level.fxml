@@ -65,7 +65,19 @@
             <Font size="44.0" />
         </font>
     </Label>
+<<<<<<< HEAD
     <GridPane fx:id="keyboardGrid" alignment="CENTER" layoutX="75.0" layoutY="475.0" prefHeight="160.0" prefWidth="500.0">
+=======
+    <HBox layoutX="200.0" layoutY="600.0" spacing="12.0">
+      <children>
+           <Button fx:id="restartButton" mnemonicParsing="false" onAction="#onRestart" prefHeight="48.0" prefWidth="120.0" text="Restart" visible="false"
+                   style="-fx-background-color: rgba(255,255,255,0.05); -fx-border-color: rgba(148,163,184,0.35); -fx-border-width: 1.2; -fx-border-radius: 14; -fx-background-radius: 14; -fx-text-fill: #cbd5e1; -fx-font-weight: bold; -fx-cursor: hand;" />
+           <Button fx:id="nextLevelButton" mnemonicParsing="false" onAction="#onNextLevel" prefHeight="48.0" prefWidth="120.0" text="Next Level" visible="false"
+                   style="-fx-background-color: linear-gradient(to right, #15803d, #22c55e); -fx-background-radius: 14; -fx-text-fill: #04140a; -fx-font-weight: bold; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(34,197,94,0.35), 12, 0.3, 0, 3);" />
+      </children>
+   </HBox>
+    <GridPane fx:id="keyboardGrid" layoutX="105.0" layoutY="475.0" prefHeight="125.0" prefWidth="440.0">
+>>>>>>> parent of 43dfd54 (feat: Enhance keyboard layout and styling in game views)
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
