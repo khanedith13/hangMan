@@ -7,22 +7,30 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="650.0" prefWidth="650.0" styleClass="victory-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController">
+<BorderPane prefHeight="650.0" prefWidth="650.0"
+            style="-fx-background-color: linear-gradient(to bottom, #071009 0%, #050807 55%, #020302 100%);"
+            xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController">
     <center>
-        <VBox alignment="CENTER" spacing="18.0" styleClass="victory-box" BorderPane.alignment="CENTER">
-            <Label styleClass="victory-title" text="FREEDOM ACHIEVED">
+        <VBox alignment="CENTER" spacing="18.0" BorderPane.alignment="CENTER"
+              style="-fx-background-color: rgba(8,15,11,0.78); -fx-background-radius: 26; -fx-border-color: rgba(34,197,94,0.28); -fx-border-width: 1.3; -fx-border-radius: 26; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 30, 0.3, 0, 12); -fx-padding: 32;">
+            <Label text="FREEDOM ACHIEVED"
+                   style="-fx-text-fill: #4ade80; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(74,222,128,0.6), 20, 0.4, 0, 0);">
                 <font>
                     <Font size="34.0" />
                 </font>
             </Label>
-            <StackPane prefHeight="420.0" prefWidth="600.0" styleClass="victory-video-frame">
+            <StackPane prefHeight="420.0" prefWidth="600.0"
+                       style="-fx-background-color: rgba(6,12,9,0.6); -fx-background-radius: 18; -fx-border-color: rgba(74,222,128,0.3); -fx-border-width: 1.5; -fx-border-radius: 18;">
                 <MediaView fx:id="victoryVideoView" fitHeight="420.0" fitWidth="600.0" preserveRatio="true" />
-                <Label fx:id="victoryStatusLabel" maxWidth="520.0" textAlignment="CENTER" wrapText="true" />
+                <Label fx:id="victoryStatusLabel" maxWidth="520.0" textAlignment="CENTER" wrapText="true"
+                       style="-fx-text-fill: #d1fae5;" />
             </StackPane>
-            <Label styleClass="victory-message" text="You cracked every security system and earned your freedom.">
-            <font>
-               <Font size="22.0" />
-            </font></Label>
+            <Label text="You cracked every security system and earned your freedom."
+                   style="-fx-text-fill: #d1fae5;">
+                <font>
+                   <Font size="22.0" />
+                </font>
+            </Label>
         </VBox>
     </center>
 </BorderPane>

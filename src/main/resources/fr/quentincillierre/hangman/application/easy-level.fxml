@@ -10,67 +10,81 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0" styleClass="game-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="650.0"
+            style="-fx-background-color: linear-gradient(to bottom, #071009 0%, #050807 55%, #020302 100%);"
+            xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController">
 
-    <Label fx:id="titleLabel" alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="45.0" prefWidth="610.0" text="CODE BREAKER" textAlignment="CENTER">
+    <Label fx:id="titleLabel" alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="45.0" prefWidth="610.0" text="CODE BREAKER" textAlignment="CENTER"
+           style="-fx-text-fill: #4ade80; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(74,222,128,0.4), 12, 0.3, 0, 0);">
         <font>
             <Font size="36.0" />
         </font>
     </Label>
 
-    <Label fx:id="levelLabel" alignment="CENTER_LEFT" layoutX="20.0" layoutY="80.0" prefHeight="30.0" prefWidth="260.0" text="LEVEL: EASY">
+    <Label fx:id="levelLabel" alignment="CENTER_LEFT" layoutX="20.0" layoutY="80.0" prefHeight="30.0" prefWidth="260.0" text="LEVEL: EASY"
+           style="-fx-text-fill: #4ade80; -fx-font-weight: bold; -fx-background-color: rgba(34,197,94,0.12); -fx-background-radius: 16; -fx-border-color: rgba(74,222,128,0.4); -fx-border-width: 1; -fx-border-radius: 16; -fx-padding: 2 12 2 12;">
         <font>
             <Font size="20.0" />
         </font>
     </Label>
 
-    <Label fx:id="difficultyLabel" alignment="CENTER_LEFT" layoutX="20.0" layoutY="110.0" prefHeight="24.0" prefWidth="260.0" text="Difficulty: EASY">
+    <Label fx:id="difficultyLabel" alignment="CENTER_LEFT" layoutX="20.0" layoutY="118.0" prefHeight="24.0" prefWidth="260.0" text="Difficulty: EASY"
+           style="-fx-text-fill: #8fa396;">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
 
-    <Label fx:id="timerLabel" alignment="CENTER_RIGHT" layoutX="420.0" layoutY="80.0" prefHeight="40.0" prefWidth="210.0" text="90">
+    <Label fx:id="timerLabel" alignment="CENTER_RIGHT" layoutX="420.0" layoutY="80.0" prefHeight="40.0" prefWidth="210.0" text="90"
+           style="-fx-text-fill: #f8fafc; -fx-font-weight: bold; -fx-background-color: rgba(34,197,94,0.12); -fx-background-radius: 10; -fx-border-color: rgba(74,222,128,0.4); -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 4 14 4 14;">
         <font>
             <Font size="28.0" />
         </font>
     </Label>
 
-    <ImageView fx:id="hangmanImageView" fitHeight="250.0" fitWidth="250.0" layoutX="40.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="hangmanImageView" fitHeight="250.0" fitWidth="250.0" layoutX="40.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true"
+               style="-fx-effect: dropshadow(gaussian, rgba(74,222,128,0.25), 18, 0.3, 0, 0);" />
 
-    <Label fx:id="wrongGuessesLabel" alignment="CENTER_LEFT" layoutX="320.0" layoutY="170.0" prefHeight="30.0" prefWidth="300.0" text="Wrong guesses: 0 / 10">
+    <Label fx:id="wrongGuessesLabel" alignment="CENTER_LEFT" layoutX="320.0" layoutY="170.0" prefHeight="30.0" prefWidth="300.0" text="Wrong guesses: 0 / 10"
+           style="-fx-text-fill: #cbd5e1;">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
 
-    <Label fx:id="executionProgressLabel" alignment="CENTER_LEFT" layoutX="320.0" layoutY="210.0" prefHeight="30.0" prefWidth="300.0" text="Execution progress: 0 / 10">
+    <Label fx:id="executionProgressLabel" alignment="CENTER_LEFT" layoutX="320.0" layoutY="210.0" prefHeight="30.0" prefWidth="300.0" text="Execution progress: 0 / 10"
+           style="-fx-text-fill: #cbd5e1;">
         <font>
             <Font size="18.0" />
         </font>
     </Label>
 
-    <Label fx:id="guessedLettersLabel" alignment="CENTER_LEFT" layoutX="320.0" layoutY="250.0" prefHeight="60.0" prefWidth="300.0" text="Guessed: " wrapText="true">
+    <Label fx:id="guessedLettersLabel" alignment="CENTER_LEFT" layoutX="320.0" layoutY="250.0" prefHeight="60.0" prefWidth="300.0" text="Guessed: " wrapText="true"
+           style="-fx-text-fill: #94a3b8;">
         <font>
             <Font size="16.0" />
         </font>
     </Label>
 
-    <Label fx:id="resultLabel" alignment="CENTER" layoutX="20.0" layoutY="340.0" prefHeight="50.0" prefWidth="610.0" text="" textAlignment="CENTER" visible="false">
+    <Label fx:id="resultLabel" alignment="CENTER" layoutX="20.0" layoutY="340.0" prefHeight="50.0" prefWidth="610.0" text="" textAlignment="CENTER" visible="false"
+           style="-fx-text-fill: #4ade80; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(74,222,128,0.5), 10, 0.4, 0, 0);">
         <font>
             <Font size="28.0" />
         </font>
     </Label>
 
-    <Label fx:id="wordLabel" alignment="CENTER" layoutX="20.0" layoutY="400.0" prefHeight="80.0" prefWidth="610.0" text="_ _ _ _ _" textAlignment="CENTER">
+    <Label fx:id="wordLabel" alignment="CENTER" layoutX="20.0" layoutY="400.0" prefHeight="80.0" prefWidth="610.0" text="_ _ _ _ _" textAlignment="CENTER"
+           style="-fx-text-fill: #eafff1; -fx-font-weight: bold; -fx-font-family: 'Consolas'; -fx-letter-spacing: 4px;">
         <font>
             <Font size="44.0" />
         </font>
     </Label>
-    <HBox layoutX="200.0" layoutY="600.0">
+    <HBox layoutX="200.0" layoutY="600.0" spacing="12.0">
       <children>
-           <Button fx:id="restartButton" mnemonicParsing="false" onAction="#onRestart" prefHeight="48.0" prefWidth="120.0" text="Restart" visible="false" />
-           <Button fx:id="nextLevelButton" mnemonicParsing="false" onAction="#onNextLevel" prefHeight="48.0" prefWidth="120.0" text="Next Level" visible="false" />
+           <Button fx:id="restartButton" mnemonicParsing="false" onAction="#onRestart" prefHeight="48.0" prefWidth="120.0" text="Restart" visible="false"
+                   style="-fx-background-color: rgba(255,255,255,0.05); -fx-border-color: rgba(148,163,184,0.35); -fx-border-width: 1.2; -fx-border-radius: 14; -fx-background-radius: 14; -fx-text-fill: #cbd5e1; -fx-font-weight: bold; -fx-cursor: hand;" />
+           <Button fx:id="nextLevelButton" mnemonicParsing="false" onAction="#onNextLevel" prefHeight="48.0" prefWidth="120.0" text="Next Level" visible="false"
+                   style="-fx-background-color: linear-gradient(to right, #15803d, #22c55e); -fx-background-radius: 14; -fx-text-fill: #04140a; -fx-font-weight: bold; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(34,197,94,0.35), 12, 0.3, 0, 3);" />
       </children>
    </HBox>
     <GridPane fx:id="keyboardGrid" layoutX="105.0" layoutY="475.0" prefHeight="125.0" prefWidth="440.0">

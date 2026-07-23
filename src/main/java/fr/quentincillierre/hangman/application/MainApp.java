@@ -26,7 +26,6 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("main-menu.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 650, 650);
-        applyStylesheet(scene);
         primaryStage.setTitle("Codebreaker: Freedom | Execution");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -37,7 +36,6 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("intro-view.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root, 650, 650);
-        applyStylesheet(scene);
         primaryStage.setTitle("Codebreaker: Freedom | Execution");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -69,7 +67,6 @@ public class MainApp extends Application {
         controller.initializeGame();
 
         Scene scene = new Scene(root, 650, 650);
-        applyStylesheet(scene);
         scene.setOnKeyTyped(event -> controller.handleKeyboardInput(event.getCharacter()));
 
         primaryStage.setScene(scene);
@@ -93,7 +90,6 @@ public class MainApp extends Application {
         }
 
         Scene executedScene = new Scene(root, 650, 650);
-        applyStylesheet(executedScene);
         primaryStage.setScene(executedScene);
         primaryStage.show();
     }
@@ -102,16 +98,8 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("victory-view.fxml"));
         Parent root = loader.load();
         Scene victoryScene = new Scene(root, 650, 650);
-        applyStylesheet(victoryScene);
         primaryStage.setScene(victoryScene);
         primaryStage.show();
-    }
-
-    private static void applyStylesheet(Scene scene) {
-        String cssUrl = MainApp.class.getResource("design.css").toExternalForm();
-        if (!scene.getStylesheets().contains(cssUrl)) {
-            scene.getStylesheets().add(cssUrl);
-        }
     }
 
     public static void main(String[] args) {
