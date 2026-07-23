@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.ExecutedController" styleClass="executed-root">
+<BorderPane prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController" styleClass="executed-root">
     <center>
         <VBox alignment="CENTER" spacing="12.0" BorderPane.alignment="CENTER" styleClass="executed-card">
             <ImageView fx:id="executedImage" fitHeight="320.0" fitWidth="420.0" preserveRatio="true" styleClass="executed-image" />

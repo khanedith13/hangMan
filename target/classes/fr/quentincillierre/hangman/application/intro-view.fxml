@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="650.0" prefWidth="650.0" styleClass="intro-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.IntroController">
+<BorderPane prefHeight="650.0" prefWidth="650.0" styleClass="intro-root" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.quentincillierre.hangman.controller.GameController">
 
     <center>
         <VBox alignment="CENTER" spacing="24.0" styleClass="intro-card" BorderPane.alignment="CENTER">
